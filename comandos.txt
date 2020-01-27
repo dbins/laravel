@@ -1,0 +1,68 @@
+composer create-project laravel/laravel responsivo 6
+//Controllers
+
+php artisan make:controller Home
+php artisan make:controller Portfolio
+php artisan make:controller Ferramentas
+php artisan make:controller Aplicativos
+php artisan make:controller Videos
+php artisan make:controller Blog
+php artisan make:controller Contato
+
+//Migrations
+php artisan make:migration criar_tabela_portfolio --create=portfolio
+php artisan make:migration criar_tabela_ferramentas --create=ferramentas
+php artisan make:migration criar_tabela_aplicativos --create=aplicativos
+php artisan make:migration criar_tabela_contatos --create=contatos
+php artisan make:migration criar_tabela_videos --create=videos
+php artisan make:migration criar_tabela_blog --create=blog
+
+//Models
+php artisan make:model Model/Portfolio
+php artisan make:model Model/Ferramentas
+php artisan make:model Model/Aplicativos
+php artisan make:model Model/Contatos
+php artisan make:model Model/Videos
+php artisan make:model Model/Blog
+
+//Seeder
+php artisan make:seeder PortfolioTableSeeder
+php artisan make:seeder FerramentasTableSeeder
+php artisan make:seeder VideosTableSeeder
+php artisan make:seeder AplicativosTableSeeder
+php artisan make:seeder BlogTableSeeder
+
+php artisan migrate
+php artisan db:seed
+
+
+PARA LIMPAR O CACHE
+php artisan config:cache ou
+php artisan config:clear
+
+//TESTES AUTOMATICOS
+php artisan make:test ViewTest
+php artisan make:test ControllerTest
+php artisan make:test DatabaseTest
+php artisan make:factory PortfolioFactory --model=Portfolio
+
+//PARA EXECUTAR
+.\vendor\bin\phpunit --testdox
+
+https://blog.mailtrap.io/send-email-in-laravel/
+php artisan make:mail SendEmail
+
+
+//PSR
+composer require --dev "squizlabs/php_codesniffer 3.*"
+.\vendor\bin\phpcs app --standard=PSR12 (validar)
+.\vendor\bin\phpcbf app --standard=PSR12 (validar e corrigir)
+
+PARA TESTAR
+php artisan serve
+ou
+php -S localhost:8000 -t public/
+
+//Mudar para porta 8003
+
+http://localhost:8000
